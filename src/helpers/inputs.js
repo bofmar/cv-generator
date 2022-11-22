@@ -17,7 +17,7 @@ const inputs = {
     new input('Title', 'personal'),
     new input('Address', 'personal'),
     new input('Phone number', 'personal'),
-    new input('Email', 'email', 'personal'),
+    new input('Email', 'personal', 'email'),
   ],
   experience: [
     [{ id: nanoid() }],
