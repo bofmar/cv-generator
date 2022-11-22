@@ -20,10 +20,13 @@ const inputs = {
     new input('Email', 'email', 'personal'),
   ],
   experience: [
-    new input('Position', 'experience'),
-    new input('Company', 'experience'),
-    new input('From', 'experience'),
-    new input('Until', 'experience')
+    [{ id: nanoid() }],
+    [
+      new input('Position', 'experience'),
+      new input('Company', 'experience'),
+      new input('From', 'experience'),
+      new input('Until', 'experience')
+    ],
   ],
 }
 

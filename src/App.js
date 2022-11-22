@@ -19,12 +19,17 @@ function App() {
         setDescription(event.target.value);
         break;
       case 'experience':
-        setExperience(prevExp => updateField(prevExp, id, value));
+        setExperience(prevExp => prevExp.map(exp => ([[...exp[0]], [...updateField(exp[1], id, value)]])));
+        break;
     }
   }
 
   function updateField(prevState, id, value) {
     return prevState.map(prev => prev.id === id ? ({ ...prev, value: value }) : prev);
+  }
+
+  function addBlock() {
+
   }
 
   return (
