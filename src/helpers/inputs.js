@@ -18,7 +18,13 @@ const inputs = {
     new input('Address', 'personal'),
     new input('Phone number', 'personal'),
     new input('Email', 'email', 'personal'),
-  ]
+  ],
+  experience: [
+    new input('Position', 'experience'),
+    new input('Company', 'experience'),
+    new input('From', 'experience'),
+    new input('Until', 'experience')
+  ],
 }
 
 
