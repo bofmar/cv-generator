@@ -10,7 +10,7 @@ export default function Form({ personalInfo, description, experience, education,
             <input type={item.type} placeholder={item.placeHolder} value={item.value} key={item.id} onChange={(event) => handleChange(event, item.id, item.section)} />
           );
         })}
-        <button>Photo</button>
+        <button className='photo--button'>Photo</button>
         <textarea placeholder='Description' value={description} onChange={(event) => handleChange(event, '', 'description')} />
       </section>
       <section className='form--section form--experience'>
@@ -25,11 +25,11 @@ export default function Form({ personalInfo, description, experience, education,
                   <input type={item.type} placeholder={item.placeHolder} value={item.value} key={item.id} onChange={(event) => handleChange(event, item.id, item.section)} />
                 );
               })}
-              <button onClick={(event) => deleteBlock(id, 'experience', event)}>Delete</button>
+              <button className='delete--button' onClick={(event) => deleteBlock(id, 'experience', event)}>Delete</button>
             </div>
           )
-        })};
-        <button onClick={(event) => addBlock('experience', event)}>Add</button>
+        })}
+        <button className='add--button' onClick={(event) => addBlock('experience', event)}>Add</button>
       </section>
       <section className='form--section form--education'>
         <h1>Education</h1>
@@ -43,14 +43,14 @@ export default function Form({ personalInfo, description, experience, education,
                   <input type={item.type} placeholder={item.placeHolder} value={item.value} key={item.id} onChange={(event) => handleChange(event, item.id, item.section)} />
                 );
               })}
-              <button onClick={(event) => deleteBlock(id, 'education', event)}>Delete</button>
+              <button className='delete--button' onClick={(event) => deleteBlock(id, 'education', event)}>Delete</button>
             </div>
           )
-        })};
-        <button onClick={(event) => addBlock('education', event)}>Add</button>
+        })}
+        <button className='add--button' onClick={(event) => addBlock('education', event)}>Add</button>
       </section>
-      <section className='controls'>
-        <button>Save as pdf</button>
+      <section className='form--section'>
+        <button className='save--button'>Save as pdf</button>
       </section>
     </form>
   );
