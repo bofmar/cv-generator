@@ -1,0 +1,23 @@
+:root {
+  --logo-background-blue: #0c1d36; 
+}
+
+.App {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 15vh 1fr;
+}
+
+header {
+  grid-column: 1/ 3;
+  grid-row: 1;
+  background-color: var(--logo-background-blue);
+
+  display: flex;
+  justify-content: center;
+}
+
+header > img {
+  height: 100%;
+}
