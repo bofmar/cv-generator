@@ -28,6 +28,16 @@ const inputs = {
       new input('Until', 'experience')
     ],
   ],
+  education: [
+    [{ id: nanoid() }],
+    [
+      new input('University name', 'education'),
+      new input('Degree', 'education'),
+      new input('Subject', 'education'),
+      new input('From', 'education'),
+      new input('Until', 'education')
+    ]
+  ]
 }
 
 

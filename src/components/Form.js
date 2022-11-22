@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Form({ personalInfo, description, experience, handleChange, addBlock, deleteBlock }) {
+export default function Form({ personalInfo, description, experience, education, handleChange, addBlock, deleteBlock }) {
   return (
     <form>
       <section className='form--section form--personal-info'>
@@ -30,6 +30,24 @@ export default function Form({ personalInfo, description, experience, handleChan
           )
         })};
         <button onClick={(event) => addBlock('experience', event)}>Add</button>
+      </section>
+      <section className='form--section form--education'>
+        <h1>Education</h1>
+        {education.map(items => {
+          const id = items[0][0].id;
+          const info = [...items[1]];
+          return (
+            <div key={id}>
+              {info.map(item => {
+                return (
+                  <input type={item.type} placeholder={item.placeHolder} value={item.value} key={item.id} onChange={(event) => handleChange(event, item.id, item.section)} />
+                );
+              })}
+              <button onClick={(event) => deleteBlock(id, 'education', event)}>Delete</button>
+            </div>
+          )
+        })};
+        <button onClick={(event) => addBlock('education', event)}>Add</button>
       </section>
     </form>
   );

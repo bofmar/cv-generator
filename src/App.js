@@ -9,6 +9,7 @@ function App() {
   const [personalInfo, setPersonalInfo] = useState(inputs.personal);
   const [description, setDescription] = useState('');
   const [experience, setExperience] = useState([inputs.experience]);
+  const [education, setEducation] = useState([inputs.education]);
 
   function handleChange(event, id, section) {
     const value = event.target.value;
@@ -22,6 +23,9 @@ function App() {
       case 'experience':
         setExperience(prevExp => prevExp.map(exp => ([[...exp[0]], [...updateField(exp[1], id, value)]])));
         break;
+      default:
+        setEducation(prevEd => prevEd.map(ed => ([[...ed[0]], [...updateField(ed[1], id, value)]])));
+        break;
     }
   }
 
@@ -34,6 +38,9 @@ function App() {
     if (blockName === 'experience') {
       const nextExp = createExp();
       setExperience(prevExp => [...prevExp, nextExp]);
+    } else {
+      const nextEd = createEd();
+      setEducation(prevEd => [...prevEd, nextEd]);
     }
   }
 
@@ -49,10 +56,25 @@ function App() {
     ]
   }
 
+  function createEd() {
+    return [
+      [{ id: nanoid() }],
+      [
+        new input('University name', 'education'),
+        new input('Degree', 'education'),
+        new input('Subject', 'education'),
+        new input('From', 'education'),
+        new input('Until', 'education')
+      ]
+    ]
+  }
+
   function deleteBlock(id, blockName, event) {
     event.preventDefault();
     if (blockName === 'experience') {
       setExperience(prevExp => prevExp.filter(exp => exp[0][0].id !== id));
+    } else {
+      setEducation(prevEd => prevEd.filter(ed => ed[0][0].id !== id));
     }
 
   }
@@ -64,6 +86,7 @@ function App() {
         personalInfo={personalInfo}
         description={description}
         experience={experience}
+        education={education}
         handleChange={handleChange}
         addBlock={addBlock}
         deleteBlock={deleteBlock}
