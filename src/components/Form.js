@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Form({ personalInfo, handleChange }) {
+export default function Form({ personalInfo, description, handleChange }) {
   return (
     <form>
       <section className='form--section form--personal-info'>
@@ -11,6 +11,7 @@ export default function Form({ personalInfo, handleChange }) {
           );
         })}
         <button>Photo</button>
+        <textarea placeholder='Description' value={description} onChange={(event) => handleChange(event, '', 'description')} />
       </section>
     </form>
   );
