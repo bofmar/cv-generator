@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
-import inputs from './helpers/inputs';
+import inputs, { input } from './helpers/inputs';
+import { nanoid } from 'nanoid';
 import './App.css';
 
 function App() {
@@ -28,8 +29,24 @@ function App() {
     return prevState.map(prev => prev.id === id ? ({ ...prev, value: value }) : prev);
   }
 
-  function addBlock() {
+  function addBlock(blockName, event) {
+    event.preventDefault();
+    if (blockName === 'experience') {
+      const nextExp = createExp();
+      setExperience(prevExp => [...prevExp, nextExp]);
+    }
+  }
 
+  function createExp() {
+    return [
+      [{ id: nanoid() }],
+      [
+        new input('Position', 'experience'),
+        new input('Company', 'experience'),
+        new input('From', 'experience'),
+        new input('Until', 'experience')
+      ],
+    ]
   }
 
   return (
@@ -40,6 +57,7 @@ function App() {
         description={description}
         experience={experience}
         handleChange={handleChange}
+        addBlock={addBlock}
       />
     </div>
   );

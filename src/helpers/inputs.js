@@ -32,3 +32,4 @@ const inputs = {
 
 
 export default inputs;
+export { input };
