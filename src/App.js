@@ -7,14 +7,17 @@ import './App.css';
 function App() {
   const [personalInfo, setPersonalInfo] = useState(inputs.personal);
 
-  function handlePersonalInfoChange(event, id) {
-    setPersonalInfo(prevInfo => prevInfo.map(info => info.id === id ? ({ ...info, value: event.target.value }) : info));
+  function handleChange(event, id, section) {
+    switch (section) {
+      case 'personal':
+        setPersonalInfo(prevInfo => prevInfo.map(info => info.id === id ? ({ ...info, value: event.target.value }) : info));
+    }
   }
 
   return (
     <div className="App">
       <Header />
-      <Form personalInfo={personalInfo} handlePersonalInfoChange={handlePersonalInfoChange} />
+      <Form personalInfo={personalInfo} handleChange={handleChange} />
     </div>
   );
 }
