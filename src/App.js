@@ -49,6 +49,14 @@ function App() {
     ]
   }
 
+  function deleteBlock(id, blockName, event) {
+    event.preventDefault();
+    if (blockName === 'experience') {
+      setExperience(prevExp => prevExp.filter(exp => exp[0][0].id !== id));
+    }
+
+  }
+
   return (
     <div className="App">
       <Header />
@@ -58,6 +66,7 @@ function App() {
         experience={experience}
         handleChange={handleChange}
         addBlock={addBlock}
+        deleteBlock={deleteBlock}
       />
     </div>
   );

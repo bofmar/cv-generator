@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Form({ personalInfo, description, experience, handleChange, addBlock }) {
+export default function Form({ personalInfo, description, experience, handleChange, addBlock, deleteBlock }) {
   return (
     <form>
       <section className='form--section form--personal-info'>
@@ -18,7 +18,6 @@ export default function Form({ personalInfo, description, experience, handleChan
         {experience.map(items => {
           const id = items[0][0].id;
           const info = [...items[1]];
-          console.log(id);
           return (
             <div key={id}>
               {info.map(item => {
@@ -26,7 +25,7 @@ export default function Form({ personalInfo, description, experience, handleChan
                   <input type={item.type} placeholder={item.placeHolder} value={item.value} key={item.id} onChange={(event) => handleChange(event, item.id, item.section)} />
                 );
               })}
-              <button>Delete</button>
+              <button onClick={(event) => deleteBlock(id, 'experience', event)}>Delete</button>
             </div>
           )
         })};
