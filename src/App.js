@@ -7,10 +7,14 @@ import './App.css';
 function App() {
   const [personalInfo, setPersonalInfo] = useState(inputs.personal);
 
+  function handlePersonalInfoChange(event, id) {
+    setPersonalInfo(prevInfo => prevInfo.map(info => info.id === id ? ({ ...info, value: event.target.value }) : info));
+  }
+
   return (
     <div className="App">
       <Header />
-      <Form personalInfo={personalInfo} />
+      <Form personalInfo={personalInfo} handlePersonalInfoChange={handlePersonalInfoChange} />
     </div>
   );
 }

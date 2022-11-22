@@ -6,7 +6,6 @@ class input {
     this.placeHolder = placeHolder;
     this.value = value
     this.id = nanoid();
-
   }
 }
 
