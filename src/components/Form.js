@@ -49,6 +49,9 @@ export default function Form({ personalInfo, description, experience, education,
         })};
         <button onClick={(event) => addBlock('education', event)}>Add</button>
       </section>
+      <section className='controls'>
+        <button>Save as pdf</button>
+      </section>
     </form>
   );
 }
