@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
 import inputs, { input } from './helpers/inputs';
