@@ -1,8 +1,11 @@
 import React from "react";
+import envelope from '../images/envelope-solid.svg';
+import phone from '../images/mobile-screen-button-solid.svg';
+import location from '../images/location-dot-solid.svg';
+
 
 export default function CV({ personalInfo, description, experience, education, skills, image }) {
   const [firstName, lastName, title, address, phoneNumber, email] = [...personalInfo];
-  const fullName = `${firstName.value} ${lastName.value}`
   return (
     <div className='cv'>
       <div className='left-side'>
@@ -12,14 +15,14 @@ export default function CV({ personalInfo, description, experience, education, s
         </section>
         <div className='card'>
           <section className='name'>
-            <h1 className='full-name'>{fullName}</h1>
+            <h1 className='full-name'>{firstName.value} <span className='last-name'>{lastName.value}</span></h1>
             <h2 className='title'>{title.value}</h2>
           </section>
           <section className='contacts'>
             <h1>CONTACT INFO</h1>
-            <p className='phone-number'>{phoneNumber.value}</p>
-            <p className='address'>{address.value}</p>
-            <p className='email'>{email.value}</p>
+            <p className='phone-number'><img src={phone} className='icon' />{phoneNumber.value}</p>
+            <p className='address'><img src={location} className='icon' />{address.value}</p>
+            <p className='email'><img src={envelope} className='icon' />{email.value}</p>
           </section>
           <section className='skills'>
             <h1>SKILLS/LANGUAGES</h1>
