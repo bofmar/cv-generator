@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 :root {
-  --logo-background-blue: #0c1d36; 
+  --logo-background-blue: #0c1d36;
+  --logo-letter-gold: #f9cc0b;
   --light-red: #F8BCBC;
   --light-blue: #DEEBF8;
   --light-green: #94D7A2;
@@ -110,7 +111,8 @@ textarea:active {
 }
 
 .save--button {
-  background-color: var(--light-blue);
+  background-color: var(--logo-background-blue);
+  color: var(--logo-letter-gold);
 }
 
 .photo--button--container {
