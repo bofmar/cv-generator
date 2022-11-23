@@ -88,13 +88,16 @@ function App() {
   function deleteBlock(id, blockName, event) {
     event.preventDefault();
     if (blockName === 'experience') {
-      setExperience(prevExp => prevExp.filter(exp => exp[0][0].id !== id));
+      setExperience(prevExp => getFilteredList(prevExp, id));
     } else if (blockName === 'education') {
-      setEducation(prevEd => prevEd.filter(ed => ed[0][0].id !== id));
+      setEducation(prevEd => getFilteredList(prevEd, id));
     } else {
-      setSkills(prevSkill => prevSkill.filter(skill => skill[0][0].id !== id));
+      setSkills(prevSkill => getFilteredList(prevSkill, id));
     }
+  }
 
+  function getFilteredList(list, id) {
+    return list.filter(item => item[0][0].id !== id);
   }
 
   return (
