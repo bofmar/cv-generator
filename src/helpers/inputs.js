@@ -37,6 +37,12 @@ const inputs = {
       new input('From', 'education'),
       new input('Until', 'education')
     ]
+  ],
+  skills: [
+    [{ id: nanoid() }],
+    [
+      new input('Skill', 'skills')
+    ]
   ]
 }
 

@@ -10,6 +10,7 @@ function App() {
   const [description, setDescription] = useState('');
   const [experience, setExperience] = useState([inputs.experience]);
   const [education, setEducation] = useState([inputs.education]);
+  const [skills, setSkills] = useState([inputs.skills]);
 
   function handleChange(event, id, section) {
     const value = event.target.value;
@@ -23,8 +24,11 @@ function App() {
       case 'experience':
         setExperience(prevExp => prevExp.map(exp => ([[...exp[0]], [...updateField(exp[1], id, value)]])));
         break;
-      default:
+      case 'education':
         setEducation(prevEd => prevEd.map(ed => ([[...ed[0]], [...updateField(ed[1], id, value)]])));
+        break;
+      default:
+        setSkills(prevSkill => prevSkill.map(skill => ([[...skill[0]], [...updateField(skill[1], id, value)]])));
         break;
     }
   }
@@ -38,9 +42,12 @@ function App() {
     if (blockName === 'experience') {
       const nextExp = createExp();
       setExperience(prevExp => [...prevExp, nextExp]);
-    } else {
+    } else if (blockName === 'education') {
       const nextEd = createEd();
       setEducation(prevEd => [...prevEd, nextEd]);
+    } else {
+      const nextSkill = createSkill();
+      setSkills(prevSkill => [...prevSkill, nextSkill]);
     }
   }
 
@@ -69,12 +76,23 @@ function App() {
     ]
   }
 
+  function createSkill() {
+    return [
+      [{ id: nanoid() }],
+      [
+        new input('skill', 'skills')
+      ]
+    ]
+  }
+
   function deleteBlock(id, blockName, event) {
     event.preventDefault();
     if (blockName === 'experience') {
       setExperience(prevExp => prevExp.filter(exp => exp[0][0].id !== id));
-    } else {
+    } else if (blockName === 'education') {
       setEducation(prevEd => prevEd.filter(ed => ed[0][0].id !== id));
+    } else {
+      setSkills(prevSkill => prevSkill.filter(skill => skill[0][0].id !== id));
     }
 
   }
@@ -87,6 +105,7 @@ function App() {
         description={description}
         experience={experience}
         education={education}
+        skills={skills}
         handleChange={handleChange}
         addBlock={addBlock}
         deleteBlock={deleteBlock}
