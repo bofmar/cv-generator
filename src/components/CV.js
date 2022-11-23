@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CV({ personalInfo, description, experience, education, skills }) {
+export default function CV({ personalInfo, description, experience, education, skills, image }) {
   const [firstName, lastName, title, address, phoneNumber, email] = [...personalInfo];
   const fullName = `${firstName.value} ${lastName.value}`
   return (
@@ -8,6 +8,9 @@ export default function CV({ personalInfo, description, experience, education, s
       <section className='name'>
         <h1 className='full-name'>{fullName}</h1>
         <h2 className='title'>{title.value}</h2>
+      </section>
+      <section className='image'>
+        <img src={image} className='cv--image' />
       </section>
       <section className='contacts'>
         <h1>CONTACT INFOR</h1>

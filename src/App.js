@@ -11,6 +11,7 @@ function App() {
   const [experience, setExperience] = useState([inputs.experience]);
   const [education, setEducation] = useState([inputs.education]);
   const [skills, setSkills] = useState([inputs.skills]);
+  const [image, setImage] = useState('');
 
   function handleChange(event, id, section) {
     const value = event.target.value;
@@ -67,6 +68,19 @@ function App() {
     return list.filter(item => item[0][0].id !== id);
   }
 
+  function renderImage(e) {
+    const file = e.target.files[0]
+    if (!file) return
+
+    const reader = new FileReader()
+    reader.onload = () => {
+      setImage(reader.result);
+    }
+    reader.readAsDataURL(file)
+
+    console.log(image);
+  }
+
   return (
     <div className="App">
       <Header />
@@ -79,6 +93,7 @@ function App() {
         handleChange={handleChange}
         addBlock={addBlock}
         deleteBlock={deleteBlock}
+        renderImage={renderImage}
       />
       <CV
         personalInfo={personalInfo}
@@ -86,6 +101,7 @@ function App() {
         experience={experience}
         education={education}
         skills={skills}
+        image={image}
       />
     </div>
   );

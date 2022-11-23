@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Form({ personalInfo, description, experience, education, skills, handleChange, addBlock, deleteBlock }) {
+export default function Form({ personalInfo, description, experience, education, skills, handleChange, addBlock, deleteBlock, renderImage }) {
   return (
     <form>
       <section className='form--section form--personal-info'>
@@ -10,7 +10,7 @@ export default function Form({ personalInfo, description, experience, education,
             <input type={item.type} placeholder={item.placeHolder} value={item.value} key={item.id} onChange={(event) => handleChange(event, item.id, item.section)} />
           );
         })}
-        <button className='photo--button'>Photo</button>
+        <input className='photo--button' type='file' onChange={renderImage} />
         <textarea placeholder='Description' value={description} onChange={(event) => handleChange(event, '', 'description')} />
       </section>
       <section className='form--section form--experience'>
