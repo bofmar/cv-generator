@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
-import inputs, { input } from './helpers/inputs';
+import inputs, { input, createExp, createEd, createSkill } from './helpers/inputs';
 import { nanoid } from 'nanoid';
 import './App.css';
 
@@ -51,39 +51,6 @@ function App() {
     }
   }
 
-  function createExp() {
-    return [
-      [{ id: nanoid() }],
-      [
-        new input('Position', 'experience'),
-        new input('Company', 'experience'),
-        new input('From', 'experience'),
-        new input('Until', 'experience')
-      ],
-    ]
-  }
-
-  function createEd() {
-    return [
-      [{ id: nanoid() }],
-      [
-        new input('University name', 'education'),
-        new input('Degree', 'education'),
-        new input('Subject', 'education'),
-        new input('From', 'education'),
-        new input('Until', 'education')
-      ]
-    ]
-  }
-
-  function createSkill() {
-    return [
-      [{ id: nanoid() }],
-      [
-        new input('skill', 'skills')
-      ]
-    ]
-  }
 
   function deleteBlock(id, blockName, event) {
     event.preventDefault();

@@ -47,5 +47,40 @@ const inputs = {
 }
 
 
+function createExp() {
+  return [
+    [{ id: nanoid() }],
+    [
+      new input('Position', 'experience'),
+      new input('Company', 'experience'),
+      new input('From', 'experience'),
+      new input('Until', 'experience')
+    ],
+  ]
+}
+
+function createEd() {
+  return [
+    [{ id: nanoid() }],
+    [
+      new input('University name', 'education'),
+      new input('Degree', 'education'),
+      new input('Subject', 'education'),
+      new input('From', 'education'),
+      new input('Until', 'education')
+    ]
+  ]
+}
+
+function createSkill() {
+  return [
+    [{ id: nanoid() }],
+    [
+      new input('skill', 'skills')
+    ]
+  ]
+}
+
+
 export default inputs;
-export { input };
+export { input, createExp, createEd, createSkill };
