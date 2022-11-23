@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 import Header from './components/Header';
 import Form from './components/Form';
 import CV from './components/CV';
@@ -78,8 +80,22 @@ function App() {
       setImage(reader.result);
     }
     reader.readAsDataURL(file)
+  }
 
-    console.log(image);
+  const generatePDF = async (event) => {
+    event.preventDefault();
+    const doc = new jsPDF();
+
+    const el = document.querySelector('.cv');
+    // remove some styles that interfere with the quality of the final print
+    el.classList.add('printing');
+    const canvas = await html2canvas(el, { allowTaint: true, useCORS: true });
+    const image = canvas.toDataURL('image/png', 1.0);
+    // return the element to its' normal condition
+    el.classList.remove('printing');
+
+    doc.addImage(image, "png", 5, 10,);
+    doc.save("a4.pdf");
   }
 
   return (
@@ -95,6 +111,7 @@ function App() {
         addBlock={addBlock}
         deleteBlock={deleteBlock}
         renderImage={renderImage}
+        generatePDF={generatePDF}
       />
       <CV
         personalInfo={personalInfo}

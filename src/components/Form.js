@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Form({ personalInfo, description, experience, education, skills, handleChange, addBlock, deleteBlock, renderImage }) {
+export default function Form({ personalInfo, description, experience, education, skills, handleChange, addBlock, deleteBlock, renderImage, generatePDF }) {
   return (
     <form>
       <section className='form--section form--personal-info'>
@@ -73,7 +73,7 @@ export default function Form({ personalInfo, description, experience, education,
         <button className='add--button' onClick={(event) => addBlock('skills', event)}>Add</button>
       </section>
       <section className='form--section'>
-        <button className='save--button'>Save as pdf</button>
+        <button className='save--button' onClick={(event) => generatePDF(event)}>Save as pdf</button>
       </section>
     </form>
   );

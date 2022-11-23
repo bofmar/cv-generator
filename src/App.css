@@ -162,6 +162,12 @@ textarea:active {
   font-family: 'Times New Roman', Times, serif;
 }
 
+.printing {
+  border-radius: 0;
+  background-color: white;
+  box-shadow: none;
+}
+
 .cv h1 {
   padding: 1rem 0 0.3rem;
   border-bottom: 2px solid var(--cv-gold);
