@@ -266,4 +266,14 @@ li::marker {
     background-color: #ccc;
     font-family: 'Karla', sans-serif;
   }
+
+  form { 
+    grid-column: 1 / span 2;
+  }
+
+  .cv {
+    grid-column: 1 / span 2;
+    width: 200%;
+  }
+
 }
