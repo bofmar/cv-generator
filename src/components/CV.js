@@ -41,7 +41,7 @@ export default function CV({ personalInfo, description, experience, education, s
           <h1>EXPERIENCE</h1>
           {experience.map(exp => (
             <div className='experience-wrapper' key={exp[0].id}>
-              <h1>{exp[1][0].value} - {exp[1][1].value}</h1>
+              <h2>{exp[1][0].value} - {exp[1][1].value}</h2>
               <p>{exp[1][2].value} - {exp[1][3].value}</p>
             </div>
           ))}
@@ -50,8 +50,8 @@ export default function CV({ personalInfo, description, experience, education, s
           <h1>EDUCATION</h1>
           {education.map(ed => (
             <div className='education-wrapper' key={ed[0].id}>
-              <h1>{ed[1][1].value}</h1>
-              <h2>{ed[1][0].value}</h2>
+              <h2>{ed[1][1].value}</h2>
+              <h3>{ed[1][0].value}</h3>
               <p>{ed[1][2].value} - {ed[1][3].value}</p>
             </div>
           ))}

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Form from './components/Form';
 import CV from './components/CV';
 import inputs, { createExp, createEd, createSkill } from './helpers/inputs';
+import defaultImage from './images/default.jpeg';
 import './App.css';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
   const [experience, setExperience] = useState([inputs.experience]);
   const [education, setEducation] = useState([inputs.education]);
   const [skills, setSkills] = useState([inputs.skills]);
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState(defaultImage);
 
   function handleChange(event, id, section) {
     const value = event.target.value;

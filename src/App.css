@@ -239,6 +239,25 @@ li::marker {
   color: var(--cv-gold);
 }
 
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.right-side > * {
+  width: 80%;
+}
+
+.right-side h2 {
+  font-size: 1rem;
+}
+
+.right-side h3 {
+  font-weight: normal;
+  font-style: italic;
+}
+
 @media (max-width: 850px) {
   .App {
     display: grid;
