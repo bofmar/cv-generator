@@ -7,7 +7,8 @@
   --light-green: #94D7A2;
 }
 
-button {
+button,
+.upload--label{
   all: initial;
   font-family: 'Karla', sans-serif;
   cursor: pointer;
@@ -108,9 +109,37 @@ textarea:active {
   background-color: var(--light-green);
 }
 
-.save--button,
-.photo--button{
+.save--button {
   background-color: var(--light-blue);
+}
+
+.photo--button--container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.photo--button--wrap{
+  position: relative;
+  width: 100%;
+}
+
+.photo--button {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  z-index: -1;
+}
+
+.upload--label{
+  display: inline-block;
+  width: 100%;
+  background-color: var(--light-blue);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 850px) {

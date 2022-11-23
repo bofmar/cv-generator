@@ -10,7 +10,12 @@ export default function Form({ personalInfo, description, experience, education,
             <input type={item.type} placeholder={item.placeHolder} value={item.value} key={item.id} onChange={(event) => handleChange(event, item.id, item.section)} />
           );
         })}
-        <input className='photo--button' type='file' onChange={renderImage} />
+        <div className='photo--button--container'>
+          <div className='photo--button--wrap'>
+            <label htmlFor='upload' className='upload--label'>Upoad Photo</label>
+            <input className='photo--button' type='file' id='upload' onChange={renderImage} />
+          </div>
+        </div>
         <textarea placeholder='Description' value={description} onChange={(event) => handleChange(event, '', 'description')} />
       </section>
       <section className='form--section form--experience'>
