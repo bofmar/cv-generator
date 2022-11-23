@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
-import inputs, { input, createExp, createEd, createSkill } from './helpers/inputs';
-import { nanoid } from 'nanoid';
+import CV from './components/CV';
+import inputs, { createExp, createEd, createSkill } from './helpers/inputs';
 import './App.css';
 
 function App() {
@@ -79,6 +79,13 @@ function App() {
         handleChange={handleChange}
         addBlock={addBlock}
         deleteBlock={deleteBlock}
+      />
+      <CV
+        personalInfo={personalInfo}
+        description={description}
+        experience={experience}
+        education={education}
+        skills={skills}
       />
     </div>
   );
