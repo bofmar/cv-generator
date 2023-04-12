@@ -223,7 +223,8 @@ textarea:active {
 }
 
 .icon {
-  width: 10%;
+  max-width: 10%;
+  min-width: 10%;
   filter: invert(78%) sepia(7%) saturate(1758%) hue-rotate(357deg) brightness(89%) contrast(88%);
 }
 
