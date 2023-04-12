@@ -12,7 +12,7 @@ export default function Form({ personalInfo, description, experience, education,
         })}
         <div className='photo--button--container'>
           <div className='photo--button--wrap'>
-            <label htmlFor='upload' className='upload--label'>Upoad Photo</label>
+            <label htmlFor='upload' className='upload--label'>Upload Photo</label>
             <input className='photo--button' type='file' id='upload' onChange={renderImage} />
           </div>
         </div>
